@@ -11,7 +11,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		Seller seller = new Seller();
-		seller.create();
+		seller.create("Abigail Navarro","abigail@gmail.com","12/07/1999",10000,4);
 	
 	}
 

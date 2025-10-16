@@ -2,6 +2,7 @@
 	
 	
 	import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -17,18 +18,18 @@ import db.DB;
 		
 		
 		
-		public void create() {
+		public void create(String name, String email, String date, double BaseSalary, int DepartmentId) {
 			try {
 				conn = DB.getConnection();
 			
 				st = conn.prepareStatement("INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) " +
 					    "VALUES (?, ?, ?, ?, ?)");
 			
-			st.setString(1, "Renato Navarro");
-			st.setString(2, "renatonm9@gmailo.com");
-			st.setDate(3, new java.sql.Date(sdf.parse("28/11/1996").getTime()));
-			st.setDouble(4, 5000);
-			st.setInt(5, 4);
+			st.setString(1, name);
+			st.setString(2, email);
+			st.setDate(3, new java.sql.Date(sdf.parse(date).getTime()));
+			st.setDouble(4, BaseSalary);
+			st.setInt(5, DepartmentId);
 			
 			int rowsAffecteds = st.executeUpdate();
 			System.out.println("Rows Affecteds "+ rowsAffecteds);
